@@ -1,0 +1,193 @@
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+#wrapper {
+    width: 320px;
+    border: 4px solid #000;
+    margin: 0 auto;
+}
+
+.control {
+    position: relative;
+}
+
+.oscillator {
+    height: 80px;
+}
+
+.oscillator h4 {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+}
+
+#oscType {
+    height: 50px;
+    width: 50px;
+    background-image: url('waveshapes.png');
+    background-size: 185px 50px;
+    border: 4px solid #000;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+.filter,
+.lfo {
+    text-align: center;
+}
+
+.filter {
+    height: 60px;
+}
+
+.envelope {
+    height: 170px;
+}
+
+.envelope h4 {
+    text-align: center;
+}
+
+.adsr {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    position: absolute;
+    top: 90px;
+}
+
+#attack {
+    left: 0;
+}
+
+#decay {
+    left: 20%;
+}
+
+#sustain {
+    right: 20%;
+}
+
+#release {
+    right: 0;
+}
+
+.lfo {
+    height: 75px;
+}
+
+#controller {
+    height: 50px;
+    width: 91.8%;
+    border: 4px solid #000;
+    margin: 9px;
+    overflow: hidden;
+}
+
+.key {
+    height: 50px;
+    width: 29px;
+    border-right: 4px solid #000;
+    float: left;
+}
+
+#g5 {
+    border: none;
+}
+
+/* -------- Custom Slider Styles -------- */
+
+/* ---- Base Styles ---- */
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 85%; /* Specific width is required for Firefox. */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent; /* Hides the slider so custom styles can be added */
+  border-color: transparent;
+  color: transparent;
+}
+
+/* ---- Thumb Styles */
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 4px solid #000;
+  height: 16px;
+  width: 16px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  border: none;
+  border-radius: 0;
+  height: 16px;
+  width: 16px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  border: 4px solid #000;
+  height: 16px;
+  width: 16px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* ---- Track Styles ---- */
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  background: #ccc;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #fff;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #fff;
+}
+
+.adsr {
+    width: 38% !important;
+}

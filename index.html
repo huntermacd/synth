@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Building A Synthesizer with the Web Audio API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="oscillator control">
+            <!-- Oscillator -->
+            <h4>Oscillator</h4>
+            <div id="oscType" class="toggleButton"></div>
+        </div>
+        <div class="filter control">
+            <!-- Filter -->
+            <h4>Filter Cutoff</h4>
+            <input type="range" id="filterCutoff" min="20" max="20000" value="20" step="20">
+        </div>
+        <div class="envelope control">
+            <!-- Volume Envelope -->
+            <h4>Volume Envelope</h4>
+            <input type="range" id="attack" class="adsr" min="0.1" max="1" value="0.1" step="0.1">
+            <input type="range" id="decay" class="adsr" min="0.1" max="1" value="0.1" step="0.1">
+            <input type="range" id="sustain" class="adsr" min="0.1" max="1" value="0.1" step="0.1">
+            <input type="range" id="release" class="adsr" min="0.1" max="1" value="0.1" step="0.1">
+        </div>
+        <div class="lfo control">
+            <!-- LFO -->
+            <h4>LFO</h4>
+            <input type="range" id="lfoFreq" min="0" max="20" value="0" step="1">
+        </div>
+        <!-- Controller -->
+        <div id="controller">
+            <div id="c4" class="key" data-freq="261.63"></div>
+            <div id="d4" class="key" data-freq="293.66"></div>
+            <div id="e4" class="key" data-freq="329.63"></div>
+            <div id="g4" class="key" data-freq="392"></div>
+            <div id="a4" class="key" data-freq="440"></div>
+            <div id="c5" class="key" data-freq="523.25"></div>
+            <div id="d5" class="key" data-freq="587.33"></div>
+            <div id="e5" class="key" data-freq="659.25"></div>
+            <div id="g5" class="key" data-freq="783.99"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="synth.js"></script>
+</body>
+</html>
