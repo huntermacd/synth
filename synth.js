@@ -7,6 +7,7 @@ var osc;
 var lfo;
 var filter;
 var amp;
+var playing = false;
 
 // create oscillators
 osc = ctx.createOscillator();
@@ -47,9 +48,19 @@ filter.connect(amp);
 amp.connect(ctx.destination);
 
 // start oscillators
-osc.start(0);
-osc2.start(0);
-lfo.start(0);
+var powerButton = document.getElementById('powerButton');
+powerButton.addEventListener('click', function(){
+    if (!playing){
+        playing = true;
+        osc.start(0);
+        osc2.start(0);
+        lfo.start(0);
+        powerButton.style.backgroundPosition = "35px";
+    } else {
+        location.reload();
+    }
+
+}, false);
 
 // -------- UI --------
 
@@ -89,6 +100,14 @@ controller.addEventListener('mousemove', updatePitch, false);
 controller.addEventListener('mouseleave', stopSound, false);
 controller.addEventListener('mouseup', stopSound, false);
 
+controller.addEventListener('touchstart', function(event){
+    event.preventDefault(); // prevents scrolling
+    updatePitch(event);
+    playSound();
+}, false);
+controller.addEventListener('touchmove', updatePitch, false);
+controller.addEventListener('touchend', stopSound, false);
+
 var lastEvent;
 
 window.addEventListener('keydown', function(event){
@@ -118,8 +137,10 @@ function playSound(){
 }
 
 function updatePitch(event){
-    osc.frequency.value = event.target.dataset.freq;
-    osc2.frequency.value = event.target.dataset.freq / 2;
+    var keyElem = document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY);
+    osc.frequency.value = keyElem.dataset.freq;
+    osc2.frequency.value = keyElem.dataset.freq / 2;
+    console.log(osc.frequency.value, osc2.frequency.value);
 }
 
 function stopSound(){
