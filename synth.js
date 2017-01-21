@@ -137,10 +137,10 @@ function playSound(){
 }
 
 function updatePitch(event){
-    var keyElem = document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY);
+    var eType = event.type === 'mousemove' ? event : event.touches[0];
+    var keyElem = document.elementFromPoint(eType.clientX, eType.clientY);
     osc.frequency.value = keyElem.dataset.freq;
     osc2.frequency.value = keyElem.dataset.freq / 2;
-    console.log(osc.frequency.value, osc2.frequency.value);
 }
 
 function stopSound(){
